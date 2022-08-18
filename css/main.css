@@ -1,0 +1,203 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:root {
+   --gap: .5em;
+   --index: calc(1vw + 1vh);
+   --color-dark: #000;
+}
+
+body {
+   overflow: hidden;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: linear-gradient(to right, #9ba9af, #26738d, #7fc2df);
+
+}
+
+.header {
+   text-transform: uppercase;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   letter-spacing: .1em;
+   font-size: calc(var(--index) * 2.8);
+   position: absolute;
+   font-weight: 200;
+   text-align: center;
+   opacity: .9;
+   margin-top: .2em;
+   background: linear-gradient(to right, #30CFD0 0%, #460b8d 100%);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.header span {
+   display: block;
+   margin-top: 5px;
+}
+
+/* ================================================================= */
+.lds-roller {
+   display: inline-block;
+   position: relative;
+   width: 80px;
+   height: 80px;
+}
+
+.lds-roller div {
+   animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+   transform-origin: 40px 40px;
+}
+
+.lds-roller div:after {
+   content: " ";
+   display: block;
+   position: absolute;
+   width: 7px;
+   height: 7px;
+   border-radius: 50%;
+   background: linear-gradient(to right, #30CFD0 0%, #460b8d 100%);
+   margin: -4px 0 0 -4px;
+}
+
+.lds-roller div:nth-child(1) {
+   animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+   top: 63px;
+   left: 63px;
+}
+
+.lds-roller div:nth-child(2) {
+   animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+   top: 68px;
+   left: 56px;
+}
+
+.lds-roller div:nth-child(3) {
+   animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+   top: 71px;
+   left: 48px;
+}
+
+.lds-roller div:nth-child(4) {
+   animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+   top: 72px;
+   left: 40px;
+}
+
+.lds-roller div:nth-child(5) {
+   animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+   top: 71px;
+   left: 32px;
+}
+
+.lds-roller div:nth-child(6) {
+   animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+   top: 68px;
+   left: 24px;
+}
+
+.lds-roller div:nth-child(7) {
+   animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+   top: 63px;
+   left: 17px;
+}
+
+.lds-roller div:nth-child(8) {
+   animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+   top: 56px;
+   left: 12px;
+}
+
+@keyframes lds-roller {
+   0% {
+      transform: rotate(0deg);
+   }
+
+   100% {
+      transform: rotate(360deg);
+   }
+}
+
+/* ================================================================= */
+
+.gallery {
+   width: 30vw;
+   column-width: 2em;
+   gap: var(--gap);
+   transform: scale(8.2);
+   will-change: transform;
+   transition: transform 1s cubic-bezier(.075, 1, .25, 1), opacity 5s;
+}
+
+.gallery__item {
+   margin-bottom: var(--gap);
+
+   transform: scale(1.001);
+   will-change: transform;
+   transition: .3s;
+}
+
+img {
+   border-radius: .08rem;
+}
+
+.gallery__item:hover {
+   transform: scale(1.03);
+}
+
+.gallery__item img {
+   width: 100%;
+   display: block;
+}
+
+.loaded .gallery {
+   opacity: 1;
+}
+
+.loaded .header span {
+   opacity: 0;
+   transition: opacity 5s;
+}
+
+/* DARK MODE */
+
+@media (prefers-color-scheme: dark) {
+   body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+   }
+
+   .header {
+      background: linear-gradient(to right, #30CFD0 0%, #460b8d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+   }
+
+}
